@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sao Cheng Tai</title>
+<meta name="description" content="Sao Cheng Tai, MEng Computing (AI & ML) at Imperial College London. Computer vision, multi-agent LLM systems and robotics.">
+<meta property="og:title" content="Sao Cheng Tai">
+<meta property="og:description" content="Building AI systems that see, learn and move. Computer vision, multi-agent LLMs and robotics.">
+<meta property="og:image" content="assets/img/headshot.jpg">
+<meta name="theme-color" content="#f6f7f9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0e14'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23ffffff' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // Apply a saved theme before first paint.
+  try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  document.documentElement.classList.add('js');
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7zM14 3v5h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__bar">
+    <a class="nav__brand" href="#top" aria-label="Sao Cheng Tai, back to top">
+      <img src="assets/img/headshot.jpg" alt="" width="28" height="28">
+      <span>Sao Cheng Tai</span>
+    </a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#honours">Honours</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav__tools">
+      <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch colour theme">
+        <svg class="i-sun"><use href="#i-sun"/></svg><svg class="i-moon"><use href="#i-moon"/></svg>
+      </button>
+      <a class="btn btn--dark btn--sm nav__cv" href="assets/Sao_Cheng_Tai_CV.pdf" target="_blank" rel="noopener">Résumé</a>
+      <button class="icon-btn nav__menu" type="button" id="menu-toggle" aria-expanded="false" aria-controls="menu-sheet" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sheet" id="menu-sheet" hidden>
+  <nav aria-label="Mobile">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a href="#honours">Honours</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <a href="assets/Sao_Cheng_Tai_CV.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+  </nav>
+</div>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero__aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <p class="status"><span class="status__dot" aria-hidden="true"></span>Open to research collaborations &amp; internships</p>
+      <h1 class="hero__name">Sao Cheng Tai</h1>
+      <p class="hero__lead">
+        AI and machine learning student at <strong>Imperial College London</strong>, building computer vision,
+        multi-agent and robotic systems that work <em>outside the lab</em>.
+      </p>
+      <p class="hero__sub">
+        My work runs from fine-tuning medical foundation models to autonomous robots and agentic pipelines for materials
+        science, taken from research prototype to a working system.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--accent" href="#research">Explore my work <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--line" href="assets/Sao_Cheng_Tai_CV.pdf" target="_blank" rel="noopener"><svg><use href="#i-doc"/></svg>Résumé</a>
+        <span class="hero__social">
+          <a class="icon-btn" href="https://www.linkedin.com/in/sao-cheng-tai-6b6a65395/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+          <a class="icon-btn" href="https://github.com/benjamin-codes-labs" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+          <a class="icon-btn" href="#contact" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
+        </span>
+      </div>
+    </div>
+
+    <figure class="portrait">
+      <div class="portrait__frame">
+        <img src="assets/img/headshot-portrait.jpg" alt="Portrait of Sao Cheng Tai" width="800" height="1000">
+      </div>
+      <figcaption>
+        <dl class="portrait__facts">
+          <div><dt>Now</dt><dd>MEng Computing (AI &amp; ML), Imperial College London</dd></div>
+          <div><dt>Latest</dt><dd>Finalist, London AI x Science Hackathon 2026</dd></div>
+          <div><dt>Based</dt><dd>London, United Kingdom · from Macau</dd></div>
+        </dl>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="container" id="highlights">
+    <div class="hl-head">
+      <p class="label">Highlights</p>
+      <p class="hl-head__note">Selected results, 2023 — 2026</p>
+    </div>
+    <div class="hl-grid">
+      <a class="hl" href="#fast-light">
+        <div class="hl__top"><span class="hl__tag">Research</span><span class="hl__year mono">2025 — 26</span></div>
+        <h3 class="hl__title">Fast &amp; Light: medical imaging with LoRA</h3>
+        <div class="hl__metric">
+          <p class="hl__num"><span data-count="0.969" data-decimals="3">0.969</span></p>
+          <p class="hl__unit">Dice score, chest X-ray segmentation</p>
+        </div>
+        <p class="hl__text">Fine-tuned the MedSAM2 foundation model while training only 1.3% of its parameters, in under 72 minutes.</p>
+        <span class="hl__more">Read the research <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="hl" href="#sentinel">
+        <div class="hl__top"><span class="hl__tag">Hackathon</span><span class="hl__year mono">2026</span></div>
+        <h3 class="hl__title">Sentinel at the London AI x Science Hackathon</h3>
+        <div class="hl__metric">
+          <p class="hl__num"><small>Top</small> <span data-count="8" data-decimals="0">8</span></p>
+          <p class="hl__unit">finalist, from 50+ teams</p>
+        </div>
+        <p class="hl__text">A multi-agent system that explains AI quality grades for battery-electrode microscopy with cited evidence.</p>
+        <span class="hl__more">See Sentinel <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="hl" href="#project-debris">
+        <div class="hl__top"><span class="hl__tag">Project lead</span><span class="hl__year mono">2026</span></div>
+        <h3 class="hl__title">Post-Disaster Debris Detection</h3>
+        <div class="hl__metric">
+          <p class="hl__num"><span data-count="86.8" data-decimals="1">86.8</span><small>%</small></p>
+          <p class="hl__unit">mAP with YOLOv12</p>
+        </div>
+        <p class="hl__text">Led a team of six to map post-typhoon debris hotspots across Macau, so clean-up crews know where to go first.</p>
+        <span class="hl__more">Open case study <svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="hl" href="#honours">
+        <div class="hl__top"><span class="hl__tag">Competition</span><span class="hl__year mono">2023 · 2025</span></div>
+        <h3 class="hl__title">National Youth AI Innovation Challenge</h3>
+        <div class="hl__metric">
+          <p class="hl__num"><span data-count="2" data-decimals="0">2</span><small>× Gold</small></p>
+          <p class="hl__unit">national-level awards</p>
+        </div>
+        <p class="hl__text">Won with an autonomous inspection robot built from scratch, and with an AI smart-farm prototype.</p>
+        <span class="hl__more">View honours <svg><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about" aria-labelledby="about-h">
+  <div class="container">
+    <header class="section-head" data-reveal>
+      <p class="label">About</p>
+      <h2 id="about-h">From research idea to <em>working system</em></h2>
+    </header>
+
+    <div class="about" data-reveal>
+      <div class="about__text">
+        <p class="about__intro">
+          I am driven by how intelligent systems perceive, reason and interact with the physical world. My interests sit at
+          the intersection of computer vision and embodied intelligence.
+        </p>
+        <p>
+          I have taken systems from dataset to deployment: curating and augmenting data, adapting foundation models, writing
+          real-time perception pipelines, and integrating them with embedded hardware and public-facing interfaces.
+        </p>
+        <p>
+          I have led multidisciplinary teams of up to sixteen members, owning scope, system architecture and delivery while
+          staying hands-on in the code. Away from the model, I enjoy the physical side of engineering: soldering,
+          3D printing and building robots from first principles.
+        </p>
+      </div>
+      <dl class="facts">
+        <div><dt>Focus</dt><dd>Computer vision, embodied AI, agentic LLM systems</dd></div>
+        <div><dt>Leadership</dt><dd>Project and software lead for teams of up to 16</dd></div>
+        <div><dt>Languages</dt><dd>Python, C++, Arduino</dd></div>
+        <div><dt>Frameworks</dt><dd>PyTorch, Ultralytics, OpenCV, scikit-learn</dd></div>
+        <div><dt>Location</dt><dd>London, United Kingdom</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESEARCH ============ -->
+<section class="section section--alt" id="research" aria-labelledby="research-h">
+  <div class="container">
+    <header class="section-head" data-reveal>
+      <p class="label">Research</p>
+      <h2 id="research-h">Selected research &amp; <em>hackathons</em></h2>
+      <p class="section-head__sub">Two projects where the engineering had to be as rigorous as the modelling.</p>
+    </header>
+
+    <!-- Sentinel -->
+    <article class="case" id="sentinel">
+      <div class="case__aside">
+        <div class="case__sticky">
+          <p class="eyebrow">London AI x Science Hackathon · 2026</p>
+          <h3 class="case__title">Sentinel</h3>
+          <p class="case__subtitle">AI quality control for battery electrode microstructures</p>
+          <p class="case__summary">
+            A 48-hour build for the Polaron Materials Manufacturing track. Sentinel classifies scanning electron microscope
+            images of battery electrodes and explains each decision with cited, traceable evidence. Our team of five placed
+            in the top 8 of 50+ submissions, in a field made up mainly of PhD and master's students, researchers and engineers.
+          </p>
+          <dl class="case__stats">
+            <div><dt>Result</dt><dd>Finalist</dd></div>
+            <div><dt>Ranking</dt><dd>Top 8 / 50+</dd></div>
+            <div><dt>Applicants</dt><dd>1,200+</dd></div>
+          </dl>
+          <dl class="case__meta">
+            <div><dt>My role</dt><dd>Designed and built the multi-agent explainer</dd></div>
+            <div><dt>Stack</dt><dd>U-Net · DINOv2 · Claude · Pydantic · Modal</dd></div>
+          </dl>
+          <a class="link-arrow" href="https://github.com/benjamin-codes-labs/Agent" target="_blank" rel="noopener">View source on GitHub <svg><use href="#i-up-right"/></svg></a>
+        </div>
+      </div>
+
+      <div class="case__flow">
+        <figure class="panel arch" data-reveal>
+          <figcaption class="panel__cap"><span>System architecture</span></figcaption>
+          <ol class="arch__row">
+            <li><b>Input</b>SEM micrograph</li>
+            <li><b>Segment</b>U-Net phase masks</li>
+            <li><b>Embed</b>DINOv2 texture features</li>
+            <li class="is-key"><b>Classify</b>Quality grade + KPIs</li>
+          </ol>
+          <div class="arch__agents">
+            <p class="arch__label">Multi-agent explainer <span>my contribution</span></p>
+            <ol class="arch__row arch__row--3">
+              <li><b>Agent</b>Analyst</li>
+              <li><b>Agent</b>Materials specialist</li>
+              <li><b>Agent</b>Writer</li>
+            </ol>
+            <p class="arch__loop"><b>Corrective RAG</b> retrieve → grade relevance → rewrite query and widen search when evidence is weak → cite</p>
+          </div>
+        </figure>
+
+        <figure class="panel shots" data-reveal>
+          <figcaption class="panel__cap"><span>The product</span><span class="panel__hint">Select to enlarge</span></figcaption>
+          <div class="shots__grid">
+            <button class="zoom shots__wide" type="button"><img src="assets/img/sentinel-dashboard.jpg" alt="Batch dashboard: each location receives a grade, a confidence level and the KPIs behind it" loading="lazy" width="1280" height="742"></button>
+            <button class="zoom" type="button"><img src="assets/img/sentinel-segmentation.jpg" alt="U-Net phase segmentation and DINOv2 texture evidence" loading="lazy" width="480" height="650"></button>
+            <button class="zoom" type="button"><img src="assets/img/sentinel-report.jpg" alt="Agent report with reasoning, caveats and verification notes" loading="lazy" width="480" height="502"></button>
+          </div>
+          <p class="shots__caption">Batch dashboard, U-Net phase segmentation with DINOv2 evidence, and the agent's written report.</p>
+        </figure>
+
+        <div class="panel notes" data-reveal>
+          <p class="panel__cap"><span>Engineering the explainer</span><span class="panel__hint">99 tests · 16/16 self-test</span></p>
+          <ul class="notes__list">
+            <li><b>Every number has an ID.</b> An evidence builder assigns a fact ID to each measurement, so the model can only cite numbers that exist.</li>
+            <li><b>Code validates; the model never grades itself.</b> A validator checks numbers, region IDs, exact quotes and the predicted class before anything ships.</li>
+            <li><b>A one-way critic.</b> An LLM grounding critic can block an explanation but can never pass one that the code validator rejected.</li>
+            <li><b>Bounded retries.</b> Two retries with oscillation detection, then a deterministic template, so a failure costs seconds rather than an endless loop.</li>
+            <li><b>Tested in both directions.</b> A seeded-defect self-test confirms the checker catches 16 of 16 planted errors, backed by 99 unit tests.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Fast & Light -->
+    <article class="case" id="fast-light">
+      <div class="case__aside">
+        <div class="case__sticky">
+          <p class="eyebrow">Student researcher · 2025 — 2026</p>
+          <h3 class="case__title">Fast &amp; Light</h3>
+          <p class="case__subtitle">Low-rank adaptation for medical imaging</p>
+          <p class="case__summary">
+            Adapting a segmentation model to every new anatomy is slow and expensive. With a team of six at the Macao Science
+            Centre's Youth Science and Technology Village, we fine-tuned MedSAM2, a SAM2-based medical foundation model, using
+            LoRA on a single A100 GPU, so the method stays practical for smaller hospitals.
+          </p>
+          <dl class="case__stats">
+            <div><dt>Dice</dt><dd>0.969</dd></div>
+            <div><dt>Training</dt><dd>&lt; 72 min</dd></div>
+            <div><dt>Cost</dt><dd>−90%</dd></div>
+          </dl>
+          <dl class="case__meta">
+            <div><dt>Programme</dt><dd>Youth Science &amp; Technology Village, Macao Science Centre</dd></div>
+            <div><dt>Stack</dt><dd>PyTorch · MedSAM2 · LoRA · CLAHE</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="case__flow">
+        <div class="panel params" data-reveal>
+          <p class="panel__cap"><span>Trainable parameters</span></p>
+          <div class="params__row">
+            <span>Full fine-tuning</span>
+            <div class="params__bar"><i style="--v:100%"></i></div>
+            <span class="mono">100%</span>
+          </div>
+          <div class="params__row">
+            <span>LoRA (ours)</span>
+            <div class="params__bar"><i class="is-accent" style="--v:1.3%"></i></div>
+            <span class="mono">1.3%</span>
+          </div>
+          <p class="params__note">Only the low-rank adapters are trained; the foundation model's weights stay frozen.</p>
+        </div>
+
+        <div class="panel notes" data-reveal>
+          <p class="panel__cap"><span>Method</span><span class="panel__hint">Chest X-ray</span></p>
+          <ul class="notes__list">
+            <li><b>Dual-prompt fusion.</b> Automated wide and central bounding boxes are fused as prompts, handling anatomical challenges such as the heart obscuring the lung fields.</li>
+            <li><b>Preprocessing.</b> Cropping, resizing and CLAHE contrast enhancement standardise X-rays from varied sources.</li>
+            <li><b>Efficiency.</b> 0.969 Dice in under 72 minutes of training, cutting training time and cost by more than 90% against traditional architectures.</li>
+          </ul>
+        </div>
+
+        <figure class="panel shots" data-reveal>
+          <figcaption class="panel__cap"><span>Research poster</span><span class="panel__hint">Select to enlarge</span></figcaption>
+          <div class="shots__stack">
+            <button class="zoom" type="button"><img src="assets/img/medsam-poster-1.jpg" alt="Poster: abstract, problem and objectives" loading="lazy" width="1924" height="826"></button>
+            <button class="zoom" type="button"><img src="assets/img/medsam-poster-2.jpg" alt="Poster: methodology, prompt strategy and LoRA fine-tuning" loading="lazy" width="1938" height="1154"></button>
+            <button class="zoom" type="button"><img src="assets/img/medsam-poster-3.jpg" alt="Poster: results and discussion" loading="lazy" width="1926" height="780"></button>
+          </div>
+        </figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects" aria-labelledby="projects-h">
+  <div class="container">
+    <header class="section-head" data-reveal>
+      <p class="label">Projects</p>
+      <h2 id="projects-h">Engineering projects, built <em>end to end</em></h2>
+      <p class="section-head__sub">From data and models to embedded control and public interfaces. Open any project for the full write-up.</p>
+    </header>
+
+    <div class="projects" data-reveal>
+      <article class="pcard pcard--feature" id="project-debris">
+        <div class="pcard__media"><img src="assets/img/debris-heatmap.jpg" alt="" loading="lazy"></div>
+        <div class="pcard__body">
+          <p class="pcard__meta"><span>2026</span><span>Project Manager &amp; Software Lead</span></p>
+          <h3>Post-Disaster Debris Detection System</h3>
+          <p class="pcard__desc">YOLOv12 detection and GIS watershed analysis map debris hotspots across Macau after typhoons, guiding clean-up crews.</p>
+          <ul class="tags"><li>YOLOv12</li><li>GIS</li><li>BeiDou</li><li>Leaflet</li></ul>
+          <button class="pcard__open" type="button" data-open="p-debris">View project <svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </article>
+
+      <article class="pcard pcard--feature">
+        <div class="pcard__media">
+          <img src="assets/media/robot-run-poster.jpg" alt="" loading="lazy">
+          <span class="pcard__badge">National Gold Award</span>
+        </div>
+        <div class="pcard__body">
+          <p class="pcard__meta"><span>2025</span><span>Individual project</span></p>
+          <h3>Intelligent Inspection Robot</h3>
+          <p class="pcard__desc">An autonomous car built from scratch that follows lanes, obeys traffic signs, avoids obstacles and parks itself.</p>
+          <ul class="tags"><li>C++</li><li>Computer vision</li><li>PID control</li></ul>
+          <button class="pcard__open" type="button" data-open="p-robot">View project <svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard__media"><img src="assets/img/ext-traffic.jpg" alt="" loading="lazy"></div>
+        <div class="pcard__body">
+          <p class="pcard__meta"><span>2024</span><span>Lead, team of 16</span></p>
+          <h3>Adaptive Smart Traffic Light</h3>
+          <p class="pcard__desc">Signals that respond to who is waiting, using detection, tracking and a learned policy.</p>
+          <ul class="tags"><li>YOLOv8</li><li>ByteTrack</li><li>Arduino</li></ul>
+          <button class="pcard__open" type="button" data-open="p-traffic">View project <svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard__media"><img src="assets/img/smartfarm.jpg" alt="" loading="lazy"><span class="pcard__badge">National Gold Award</span></div>
+        <div class="pcard__body">
+          <p class="pcard__meta"><span>2023</span><span>National competition</span></p>
+          <h3>Smart Farm Application</h3>
+          <p class="pcard__desc">An AI-driven smart agriculture prototype, presented to the national judging panel.</p>
+          <ul class="tags"><li>AI</li><li>Embedded</li><li>Prototyping</li></ul>
+          <button class="pcard__open" type="button" data-open="p-farm">View project <svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard__media pcard__media--type">
+          <div class="type-art" aria-hidden="true">
+            <span>vision</span><span>heartbeat</span><span>speech-to-text</span><span>sentiment</span><span>text-to-speech</span><span>Marty robot</span>
+          </div>
+        </div>
+        <div class="pcard__body">
+          <p class="pcard__meta"><span>Team lead</span><span>Multidisciplinary</span></p>
+          <h3>Student Wellbeing Companion</h3>
+          <p class="pcard__desc">A robot companion supporting student stress management and parent–child communication.</p>
+          <ul class="tags"><li>NLP</li><li>Sensing</li><li>Robotics</li></ul>
+          <button class="pcard__open" type="button" data-open="p-wellbeing">View project <svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HONOURS ============ -->
+<section class="section section--alt" id="honours" aria-labelledby="honours-h">
+  <div class="container">
+    <header class="section-head" data-reveal>
+      <p class="label">Honours</p>
+      <h2 id="honours-h">Awards &amp; <em>recognition</em></h2>
+      <p class="section-head__sub">Nine honours across national and international competitions since 2023.</p>
+    </header>
+
+    <div class="honours">
+      <aside class="honours__aside">
+        <div class="honours__sticky" data-reveal>
+          <dl class="tally">
+            <div><dt>Honours</dt><dd>9</dd></div>
+            <div><dt>National golds</dt><dd>2</dd></div>
+            <div><dt>First prizes</dt><dd>2</dd></div>
+          </dl>
+          <figure class="honours__photo">
+            <button class="zoom" type="button"><img src="assets/img/finals-flag.jpg" alt="Representing Macau at the 8th National Youth AI Innovation Challenge finals, August 2025" loading="lazy"></button>
+            <figcaption>Representing Macau at the national finals, 23–25 August 2025.</figcaption>
+          </figure>
+        </div>
+      </aside>
+
+      <ol class="timeline">
+        <li class="tl-year" data-reveal>
+          <span class="tl-year__label">2026</span>
+          <ul>
+            <li class="tl-item">
+              <p class="tl-item__award">Finalist <span class="pill">Top 8 of 50+</span></p>
+              <p class="tl-item__event">London AI x Science Hackathon, Polaron Materials Manufacturing Track</p>
+            </li>
+            <li class="tl-item">
+              <p class="tl-item__award">First Runner-Up ×2</p>
+              <p class="tl-item__event">Youth Science &amp; Technology Village, Engineering and Biology &amp; Chemistry categories</p>
+            </li>
+            <li class="tl-item">
+              <p class="tl-item__award">High-Tech Scholarship</p>
+              <p class="tl-item__event">Macau PhD Think Tank</p>
+            </li>
+          </ul>
+        </li>
+        <li class="tl-year" data-reveal>
+          <span class="tl-year__label">2025</span>
+          <ul>
+            <li class="tl-item tl-item--gold">
+              <p class="tl-item__award">Gold Award <span class="pill pill--gold">National</span></p>
+              <p class="tl-item__event">8th National Youth AI Innovation Challenge, Intelligent Inspection Robot Design Programme</p>
+            </li>
+            <li class="tl-item">
+              <p class="tl-item__award">First Prize</p>
+              <p class="tl-item__event">Macau AI Challenge, 3rd edition</p>
+            </li>
+            <li class="tl-item">
+              <p class="tl-item__award">High Distinction</p>
+              <p class="tl-item__event">SDG Innovation Hackathon, Macau Selection Competition</p>
+            </li>
+          </ul>
+        </li>
+        <li class="tl-year" data-reveal>
+          <span class="tl-year__label">2024</span>
+          <ul>
+            <li class="tl-item">
+              <p class="tl-item__award">Award of Excellence</p>
+              <p class="tl-item__event">Greater Bay Area Youth AI and Cybersecurity Challenge</p>
+            </li>
+          </ul>
+        </li>
+        <li class="tl-year" data-reveal>
+          <span class="tl-year__label">2023</span>
+          <ul>
+            <li class="tl-item tl-item--gold">
+              <p class="tl-item__award">Gold Award <span class="pill pill--gold">National</span></p>
+              <p class="tl-item__event">6th National Youth AI Innovation Challenge, Smart Farm Application Programme</p>
+            </li>
+            <li class="tl-item">
+              <p class="tl-item__award">First Prize</p>
+              <p class="tl-item__event">Macau AI Challenge, 1st edition</p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="section" id="education" aria-labelledby="education-h">
+  <div class="container">
+    <header class="section-head" data-reveal>
+      <p class="label">Education</p>
+      <h2 id="education-h">Education &amp; <em>academic programmes</em></h2>
+    </header>
+
+    <div class="edu" data-reveal>
+      <article class="edu__card">
+        <img class="edu__img" src="assets/img/ext-imperial.jpg" alt="Queen's Tower, Imperial College London" loading="lazy">
+        <div class="edu__body">
+          <p class="edu__when">2026 — Present</p>
+          <h3>Imperial College London</h3>
+          <p>MEng Computing (Artificial Intelligence and Machine Learning)</p>
+        </div>
+      </article>
+      <article class="edu__card">
+        <div class="edu__img edu__img--mono" aria-hidden="true">A*</div>
+        <div class="edu__body">
+          <p class="edu__when">2020 — 2026</p>
+          <h3>Yuet Wah College, Macau</h3>
+          <p>International A Levels: A* in Mathematics, Further Mathematics, Physics and Chemistry</p>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="subhead" data-reveal>Lectures &amp; academic programmes</h3>
+    <p class="subhead__sub" data-reveal>University exchange and supercurricular programmes in Macau, each applying deep learning to a different scientific field.</p>
+    <ul class="prog">
+      <li class="prog__row" data-reveal>
+        <img class="prog__thumb" src="assets/img/ext-must.jpg" alt="" loading="lazy">
+        <span class="prog__field">Medicine</span>
+        <span class="prog__title">AI in Medical Imaging</span>
+        <span class="prog__inst">Macau University of Science and Technology</span>
+      </li>
+      <li class="prog__row" data-reveal>
+        <img class="prog__thumb" src="assets/img/ext-cityu.jpg" alt="" loading="lazy">
+        <span class="prog__field">Vision</span>
+        <span class="prog__title">Computer Vision &amp; Deep Learning</span>
+        <span class="prog__inst">City University of Macau</span>
+      </li>
+      <li class="prog__row" data-reveal>
+        <img class="prog__thumb" src="assets/img/ext-mpu.jpg" alt="" loading="lazy">
+        <span class="prog__field">Life sciences</span>
+        <span class="prog__title">AI in Drug Discovery</span>
+        <span class="prog__inst">Macao Polytechnic University</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section section--alt" id="skills" aria-labelledby="skills-h">
+  <div class="container">
+    <header class="section-head" data-reveal>
+      <p class="label">Skills</p>
+      <h2 id="skills-h">Technical <em>toolkit</em></h2>
+    </header>
+    <div class="skills" data-reveal>
+      <div class="skills__col">
+        <h3>Computer vision</h3>
+        <ul>
+          <li>Segmentation: U-Net, MedSAM2</li><li>Detection: YOLO family</li><li>Self-supervised features: DINOv2</li>
+          <li>Denoising, thresholding, edge detection</li><li>SEM and X-ray imaging</li>
+        </ul>
+        <p class="skills__tools">OpenCV · scikit-image · torchvision · Pillow · Ultralytics · MediaPipe · Roboflow</p>
+      </div>
+      <div class="skills__col">
+        <h3>Machine learning &amp; agents</h3>
+        <ul>
+          <li>Parameter-efficient fine-tuning (LoRA)</li><li>Multi-agent LLM workflows</li><li>Retrieval: Corrective RAG</li>
+          <li>Output validation and grounding</li><li>Hyperparameter tuning</li>
+        </ul>
+        <p class="skills__tools">PyTorch · scikit-learn · XGBoost · Claude API · Pydantic · Streamlit</p>
+      </div>
+      <div class="skills__col">
+        <h3>Data &amp; scientific computing</h3>
+        <ul>
+          <li>Dataset curation and augmentation</li><li>Web scraping</li><li>GIS and elevation models</li>
+          <li>Statistical modelling</li><li>Visualisation</li>
+        </ul>
+        <p class="skills__tools">NumPy · SciPy · pandas · Matplotlib · Seaborn · Plotly · Leaflet</p>
+      </div>
+      <div class="skills__col">
+        <h3>Embedded &amp; robotics</h3>
+        <ul>
+          <li>PID control</li><li>Time-of-flight and distance sensing</li><li>Serial device control</li>
+          <li>Soldering and 3D printing</li><li>Rapid prototyping</li>
+        </ul>
+        <p class="skills__tools">C++ · Arduino · Modal · Git</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact" aria-labelledby="contact-h">
+  <div class="container">
+    <div class="contact__card" data-reveal>
+      <div class="contact__text">
+        <p class="label">Contact</p>
+        <h2 class="contact__title" id="contact-h">Let's build something <em>real</em>.</h2>
+        <p class="contact__sub">Open to research collaborations, internships and conversations in computer vision, embodied AI and agentic systems.</p>
+      </div>
+      <div class="contact__actions">
+        <div class="contact__mail">
+          <span class="contact__mail-label">Email</span>
+          <a href="mailto:benjamintaisc@gmail.com" id="email">benjamintaisc@gmail.com</a>
+          <button class="btn btn--line btn--sm" type="button" id="copy-email" data-copy="benjamintaisc@gmail.com">Copy</button>
+        </div>
+        <ul class="contact__links">
+          <li><a href="https://www.linkedin.com/in/sao-cheng-tai-6b6a65395/" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg>LinkedIn <svg class="ext"><use href="#i-up-right"/></svg></a></li>
+          <li><a href="https://github.com/benjamin-codes-labs" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>GitHub <svg class="ext"><use href="#i-up-right"/></svg></a></li>
+          <li><a href="assets/Sao_Cheng_Tai_CV.pdf" target="_blank" rel="noopener"><svg><use href="#i-doc"/></svg>Résumé <svg class="ext"><use href="#i-up-right"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© 2026 Sao Cheng Tai</p>
+    <details class="credits">
+      <summary>Image credits</summary>
+      <p>
+        Campus and street photographs via Wikimedia Commons:
+        <a href="https://commons.wikimedia.org/wiki/File:Queen%27s_Tower_above_Imperial_College_Central_Library_in_Late_Autumn.jpg" target="_blank" rel="noopener">Imperial College</a> by Shadowssettle (CC BY-SA 4.0);
+        <a href="https://commons.wikimedia.org/wiki/File:Macau_University_of_Science_and_Technology_13-10-2024.jpg" target="_blank" rel="noopener">MUST</a>,
+        <a href="https://commons.wikimedia.org/wiki/File:City_University_of_Macau_07-04-2025.jpg" target="_blank" rel="noopener">City University of Macau</a> and
+        <a href="https://commons.wikimedia.org/wiki/File:Macao_Polytechnic_University_28-01-2023.jpg" target="_blank" rel="noopener">Macao Polytechnic University</a> by LN9267 (CC BY-SA 4.0);
+        <a href="https://commons.wikimedia.org/wiki/File:MacauTrafficLight1.jpg" target="_blank" rel="noopener">Macau traffic light</a> by cdip150 (public domain).
+        All other images are the author's own.
+      </p>
+    </details>
+    <a class="footer__top" href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<!-- ============ PROJECT DRAWER ============ -->
+<dialog class="drawer" id="drawer" aria-labelledby="drawer-title">
+  <div class="drawer__panel">
+    <div class="drawer__head">
+      <span class="mono">Case study</span>
+      <button class="icon-btn icon-btn--line" type="button" id="drawer-close" aria-label="Close"><svg><use href="#i-close"/></svg></button>
+    </div>
+    <div class="drawer__body" id="drawer-body"></div>
+  </div>
+</dialog>
+
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
+  <button class="icon-btn lightbox__close" type="button" id="lightbox-close" aria-label="Close"><svg><use href="#i-close"/></svg></button>
+  <img id="lightbox-img" alt="">
+  <p class="lightbox__cap" id="lightbox-cap"></p>
+</dialog>
+
+<!-- ============ CASE STUDY CONTENT ============ -->
+<template id="p-debris">
+  <p class="d-meta mono">2026 · Project Manager &amp; Software Lead · Team of six</p>
+  <h2 class="d-title" id="drawer-title">Post-Disaster Debris Detection System</h2>
+  <p class="d-lede">An end-to-end system for post-typhoon clean-up in Macau. GIS watershed analysis predicts where debris will accumulate, YOLOv12 confirms it from camera and mobile imagery, and a public map tells crews where to go first.</p>
+  <dl class="d-stats">
+    <div><dt>mAP</dt><dd>86.8%</dd></div>
+    <div><dt>Classes</dt><dd>14</dd></div>
+    <div><dt>DEM grid</dt><dd>5 m</dd></div>
+    <div><dt>Positioning</dt><dd>BeiDou</dd></div>
+  </dl>
+  <figure class="d-hero"><button class="zoom" type="button"><img src="assets/img/debris-heatmap.jpg" alt="Debris hotspot heatmap of Macau with detected categories"></button></figure>
+  <h3 class="d-h">What I did</h3>
+  <ul class="d-list">
+    <li>Led a six-person team as project manager and software lead, from problem framing to a working capstone prototype.</li>
+    <li>Curated and augmented the training set in Roboflow and trained YOLOv12 to 86.8% mAP across 14 classes, from cans and plastic bags to fallen trees.</li>
+    <li>Built the real-time pipeline that turns geotagged detections, positioned with BeiDou satellite navigation, into hotspot markers and heatmaps on an interactive Leaflet map with CSV import and export.</li>
+    <li>Combined detections with GIS watershed analysis of Macau's 5-metre digital elevation model to flag low-lying, high-risk accumulation zones before debris appears.</li>
+    <li>Added live weather and disaster-scenario views (typhoon, storm surge, rainstorm) to support clean-up planning.</li>
+  </ul>
+  <div class="d-grid">
+    <button class="zoom" type="button"><img src="assets/img/debris-detect.jpg" alt="Detection interface with live map"></button>
+    <button class="zoom" type="button"><img src="assets/img/debris-districts.jpg" alt="District map previews across Macau"></button>
+    <button class="zoom" type="button"><img src="assets/img/debris-weather.jpg" alt="Weather dashboard"></button>
+  </div>
+  <h3 class="d-h">Stack</h3>
+  <ul class="tags"><li>YOLOv12</li><li>Roboflow</li><li>BeiDou GNSS</li><li>GIS / DEM</li><li>Leaflet</li><li>Python</li><li>JavaScript</li></ul>
+  <div class="d-links">
+    <a class="link-arrow" href="https://github.com/benjamin-codes-labs/PostDisasterPredictionAndManagement" target="_blank" rel="noopener">View source on GitHub <svg><use href="#i-up-right"/></svg></a>
+  </div>
+</template>
+
+<template id="p-robot">
+  <p class="d-meta mono">2025 · Individual project · Gold Award, 8th National Youth AI Innovation Challenge</p>
+  <h2 class="d-title" id="drawer-title">Intelligent Inspection Robot</h2>
+  <p class="d-lede">An autonomous robot car, built from scratch, that drives a miniature road network on its own: following lanes, obeying traffic signs, avoiding obstacles and parking itself.</p>
+  <figure class="d-hero d-hero--video">
+    <video src="assets/media/robot-run.mp4" poster="assets/media/robot-run-poster.jpg" muted loop playsinline autoplay controls></video>
+  </figure>
+  <h3 class="d-h">Engineering</h3>
+  <ul class="d-list">
+    <li>Real-time vision pipeline with denoising, adaptive thresholding, edge detection and Hough-transform line extraction to estimate lane offset on every frame.</li>
+    <li>Hand-tuned PID controller converts lane offset into commands for four independently driven wheels.</li>
+    <li>Traffic-sign recognition for stop, direction, crosswalk and speed-limit signs, with re-trigger guards so each sign is acted on exactly once.</li>
+    <li>Automatic parking using three VL53L1X time-of-flight sensors, with live status on an RGB LCD and NeoPixel light strips.</li>
+  </ul>
+  <div class="d-grid">
+    <button class="zoom" type="button"><img src="assets/img/robot-portrait.jpg" alt="Sao Cheng Tai with the robot beside the competition track"></button>
+    <button class="zoom" type="button"><img src="assets/img/robot-track-2.jpg" alt="Competition track with lanes, signs and obstacles"></button>
+    <button class="zoom" type="button"><img src="assets/img/robot-track.jpg" alt="Overhead view of the course"></button>
+  </div>
+  <h3 class="d-h">Stack</h3>
+  <ul class="tags"><li>C++</li><li>Arduino</li><li>Computer vision</li><li>PID control</li><li>ToF sensing</li></ul>
+  <div class="d-links">
+    <a class="link-arrow" href="https://github.com/benjamin-codes-labs/Robotic_car_2" target="_blank" rel="noopener">Line following &amp; parking firmware <svg><use href="#i-up-right"/></svg></a>
+    <a class="link-arrow" href="https://github.com/benjamin-codes-labs/Robotic_car1" target="_blank" rel="noopener">Sign-aware road follower <svg><use href="#i-up-right"/></svg></a>
+  </div>
+</template>
+
+<template id="p-traffic">
+  <p class="d-meta mono">2024 · Project Manager &amp; Software Lead · Team of sixteen · Three months</p>
+  <h2 class="d-title" id="drawer-title">Adaptive Smart Traffic Light System</h2>
+  <p class="d-lede">A traffic signal that responds to who is actually waiting. Computer vision measures demand at the crossing, a learned policy decides who gets priority, and an Arduino drives the physical lights.</p>
+  <figure class="d-hero"><button class="zoom" type="button"><img src="assets/img/ext-traffic.jpg" alt="Traffic signals at a Macau intersection"></button><figcaption>Illustrative photograph of a Macau intersection.</figcaption></figure>
+  <h3 class="d-h">What I did</h3>
+  <ul class="d-list">
+    <li>Led a sixteen-member team for three months from concept to working prototype.</li>
+    <li>Detection with YOLOv8 and a custom model trained on a Roboflow dataset; ByteTrack follows each pedestrian and vehicle to measure how long it has been waiting.</li>
+    <li>Waiting times, the car-to-pedestrian ratio and scraped weather data feed an SVM that selects the signal state.</li>
+    <li>Signal commands go over serial to an Arduino driving the physical lights, while the live feed is annotated with boxes, wait times and counts.</li>
+    <li>Built a Pygame traffic simulation to evaluate an XGBoost priority model across traffic scenarios.</li>
+  </ul>
+  <h3 class="d-h">Stack</h3>
+  <ul class="tags"><li>YOLOv8</li><li>ByteTrack</li><li>Roboflow</li><li>scikit-learn</li><li>XGBoost</li><li>Pygame</li><li>Arduino</li></ul>
+  <div class="d-links">
+    <a class="link-arrow" href="https://github.com/benjamin-codes-labs/SmartTrafficLightWithArduinoAndPython" target="_blank" rel="noopener">Controller source <svg><use href="#i-up-right"/></svg></a>
+    <a class="link-arrow" href="https://github.com/benjamin-codes-labs/TrafficSimulation_SmartLight" target="_blank" rel="noopener">Simulation source <svg><use href="#i-up-right"/></svg></a>
+  </div>
+</template>
+
+<template id="p-farm">
+  <p class="d-meta mono">2023 · Gold Award, 6th National Youth AI Innovation Challenge</p>
+  <h2 class="d-title" id="drawer-title">Smart Farm Application</h2>
+  <p class="d-lede">An AI-driven smart agriculture prototype, built as a working tabletop model and presented to the national judging panel, where it received a Gold Award.</p>
+  <figure class="d-hero"><button class="zoom" type="button"><img src="assets/img/smartfarm.jpg" alt="Presenting the Smart Farm prototype to the judges"></button><figcaption>Presenting the prototype to the judging panel.</figcaption></figure>
+  <h3 class="d-h">Highlights</h3>
+  <ul class="d-list">
+    <li>Designed and built a physical farm model integrating sensing, embedded control and AI decision-making.</li>
+    <li>Presented and defended the system before the national judging panel.</li>
+  </ul>
+</template>
+
+<template id="p-wellbeing">
+  <p class="d-meta mono">Team lead · Multidisciplinary team</p>
+  <h2 class="d-title" id="drawer-title">Student Wellbeing &amp; Parent–Child Communication System</h2>
+  <p class="d-lede">An AI-powered companion that helps students manage stress and helps families communicate, combining sensing, language and robotics in one interactive system built around the Marty robot.</p>
+  <h3 class="d-h">System modules</h3>
+  <dl class="d-modules">
+    <div><dt>Perception</dt><dd>Computer vision and heartbeat detection</dd></div>
+    <div><dt>Language</dt><dd>Speech-to-text, NLP sentiment analysis and text-to-speech</dd></div>
+    <div><dt>Hardware</dt><dd>Marty robot with Arduino sensor modules</dd></div>
+  </dl>
+</template>
+
+<script src="main.js"></script>
+</body>
+</html>
