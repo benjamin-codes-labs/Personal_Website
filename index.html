@@ -8,15 +8,17 @@
 <meta property="og:title" content="Sao Cheng Tai">
 <meta property="og:description" content="Machine learning research, AI for science and computer vision. MEng Computing (AI & ML), Imperial College London.">
 <meta property="og:image" content="assets/img/headshot.jpg">
-<meta name="theme-color" content="#f6f7f9">
+<meta name="theme-color" content="#08090d">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0e14'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23ffffff' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script>
-  // Apply a saved theme before first paint.
-  try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  // Dark by default; a visitor's own choice from the theme toggle is remembered.
+  var t = null;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
   document.documentElement.classList.add('js');
 </script>
 </head>
